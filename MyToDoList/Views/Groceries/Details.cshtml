@@ -1,0 +1,45 @@
+﻿@model MyToDoList.Data.Groceries
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div class="row">
+    <div class="col-md-6 pull-left">
+        <table class="table">
+            <tr>
+                <th>@Html.LabelFor(model => Model.ProductName)</th>
+                <td>
+                    @Html.DisplayFor(model => model.ProductName)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => Model.ProductPrice)</th>
+                <td>
+                    @Html.DisplayFor(model => model.ProductPrice)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => Model.Quantity)</th>
+                <td>
+                    @Html.DisplayFor(model => model.Quantity)
+                </td>
+            </tr>          
+            <tr>
+                <td>
+                    <a class="btn btn-default" href="@Url.Action("Index","Groceries")">
+                        <i class="fa fa-angle-left"></i>
+                        Back to List
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-default" href="@Url.Action("Edit","Groceries", new { id = Model.GroceriesId })">
+                        <i class="fa fa-edit"></i>
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+﻿@model MyToDoList.Data.Groceries
+
+@{
+    ViewBag.Title = "AddNew";
+    var message = TempData["AlertMessage"] ?? string.Empty;
+}
+<script>
+    var msg = '@message';
+    if (msg)
+        alert(msg);
+</script>
+
+<h2 class="title text-center">Add New</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <tr>
+                    <th width="80px">@Html.LabelFor(model => model.ProductName)</th>
+                    <td>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-pencil"></i>
+                            </div>
+                            @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control", @placeholder = "Product Name" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.ProductName, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.LabelFor(model => model.ProductPrice)</th>
+                    <td>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i>R</i>
+                            </div>
+                            @Html.TextBoxFor(m => m.ProductPrice, new { @class = "form-control", @placeholder = "Product Price" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.ProductPrice, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.LabelFor(model => model.Quantity)</th>
+                    <td>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-pencil"></i>
+                            </div>
+                            @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control", @placeholder = "Quantity" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+            </table>
+            <div class="row text-center">
+                <a class="btn btn-default" href="@Url.Action("Index","Groceries")">
+                    <i class="fa fa-angle-left"></i>
+                    Back To List
+                </a>
+                <input type="submit" class="btn btn-default" value="Save" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
