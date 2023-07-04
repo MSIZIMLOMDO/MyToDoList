@@ -25,7 +25,13 @@
                 <td>
                     @Html.DisplayFor(model => model.Quantity)
                 </td>
-            </tr>          
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => Model.TotalPrice)</th>
+                <td>
+                    @Html.DisplayFor(model => model.TotalPrice)
+                </td>
+            </tr>
             <tr>
                 <td>
                     <a class="btn btn-default" href="@Url.Action("Index","Groceries")">

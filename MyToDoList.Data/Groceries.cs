@@ -16,7 +16,12 @@ namespace MyToDoList.Data
         [Display(Name = "Product Name")]
         public string ProductName { get; set; }
         [Display(Name = "Product Price")]
+        [DataType(DataType.Currency)]
         public double ProductPrice { get; set; }
         public int Quantity { get; set; }
+        public string Username { get; set; }
+        [DataType(DataType.Currency)]
+        public double TotalPrice { get; set; }
+
     }
 }

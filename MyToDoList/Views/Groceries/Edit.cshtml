@@ -52,6 +52,18 @@
                     </td>
                 </tr>
                 <tr>
+                    <th width="80px">@Html.LabelFor(model => model.TotalPrice)</th>
+                    <td>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-pencil"></i>
+                            </div>
+                            @Html.EditorFor(model => model.TotalPrice, new { htmlAttributes = new { @class = "form-control", @placeholder = "Total Price" } })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.TotalPrice, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
                     <td>
                         <a class="btn btn-default" href="@Url.Action("Index","Groceries")">
                             <i class="fa fa-angle-left"></i>

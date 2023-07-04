@@ -10,7 +10,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "MyToDoList.Data.ApplicationDbContext";
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(MyToDoList.Data.ApplicationDbContext context)

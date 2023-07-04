@@ -14,6 +14,7 @@ namespace MyToDoList.Service.Interface
         bool Insert(Groceries groceries, string currentUserID);
         bool Update(Groceries groceries, string currentUserID);
         bool Delete(Groceries groceries);
+        double CalcTotalAmount(Groceries groceries);
         IEnumerable<Groceries> Find(Func<Groceries, bool> predicate);
     }
 }

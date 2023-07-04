@@ -15,9 +15,9 @@ namespace MyToDoList.Controllers
     public class GroceriesController : Controller
     {
         private IGroceriesService _groceries;
-        public GroceriesController(IGroceriesService roomTypes)
+        public GroceriesController(IGroceriesService groceries)
         {
-            _groceries = roomTypes;
+            _groceries = groceries;
         }
         // GET: RoomTypes
         public ActionResult Index()
@@ -34,6 +34,8 @@ namespace MyToDoList.Controllers
             if (ModelState.IsValid)
             {
                 var username = User.Identity.GetUserName();
+                model.Username = username;
+                model.TotalPrice = _groceries.CalcTotalAmount(model);
                 if (_groceries.Insert(model, username))
                 {                  
                     return RedirectToAction("Index");
@@ -60,6 +62,7 @@ namespace MyToDoList.Controllers
             if (ModelState.IsValid)
             {
                 var username = User.Identity.GetUserName();
+                model.TotalPrice = _groceries.CalcTotalAmount(model);
                 if (_groceries.Update(model, username))
                 {
                     return RedirectToAction("Index");

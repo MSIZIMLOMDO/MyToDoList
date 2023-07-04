@@ -43,5 +43,9 @@ namespace MyToDoList.Service.Implementation
         {
             return _groceriesRepository.Delete(groceries);
         }
+        public double CalcTotalAmount(Groceries groceries)
+        {
+            return groceries.ProductPrice * groceries.Quantity;
+        }
     }
 }
